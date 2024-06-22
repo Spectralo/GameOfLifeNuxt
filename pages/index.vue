@@ -15,20 +15,32 @@
     </div>
     </div>
     <div class="panel game">
-      <canvas class="gridCanvas"
-         :width="width"
-         :height="height"
-      >
-      </canvas>
+      <canvas ref="canvas" class="gridCanvas" width="100%" height="100%"/>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="js">
 import '~/assets/css/colors.css'
 import '~/assets/css/reset.css'
 
+let canvas = this.$refs.canvas as HTMLCanvasElement
+const ctx = canvas.getContext("2d");
 
+function draw() {
+        const canvas = document.getElementById("canvas");
+        if (canvas.getContext) {
+          const ctx = canvas.getContext("2d");
+
+          ctx.fillStyle = "rgb(200 0 0)";
+          ctx.fillRect(10, 10, 50, 50);
+
+          ctx.fillStyle = "rgb(0 0 200 / 50%)";
+          ctx.fillRect(30, 30, 50, 50);
+        }
+}
+
+draw()
 
 function play() {
   console.log("Play")
