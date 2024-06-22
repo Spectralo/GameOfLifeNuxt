@@ -3,13 +3,23 @@
     <Header />
   </div>
   <div class="container">
+    <div class="rightpanel">
     <div class="panel controls">
       <Button @click="play()"><Icon name="mdi:play" color="var(--fg)" size="50px"/></Button>
       <Button @click="pause()"><Icon name="mdi:pause" color="var(--fg)" size="50px"/></Button>
       <Button @click="reset()"><Icon name="ic:baseline-settings-backup-restore" color="var(--fg)" size="50px"/></Button>
     </div>
+    <div class="panel controls">
+      <Button @click="play()"><Icon name="ic:baseline-edit" color="var(--fg)" size="50px"/></Button>
+      <Button @click="pause()"><Icon name="mingcute:random-fill" color="var(--fg)" size="50px"/></Button>
+    </div>
+    </div>
     <div class="panel game">
-      <h1>Generation: 0</h1>
+      <canvas class="gridCanvas"
+         :width="width"
+         :height="height"
+      >
+      </canvas>
     </div>
   </div>
 </template>
@@ -18,6 +28,17 @@
 import '~/assets/css/colors.css'
 import '~/assets/css/reset.css'
 
+
+
+function play() {
+  console.log("Play")
+}
+function pause() {
+  console.log("Pause")
+}
+function reset() {
+  console.log("Reset")
+}
 
 </script>
 
@@ -36,20 +57,32 @@ body {
   width: fit-content;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: fit-content;
   justify-content: center;
+  margin-bottom: 30px;
 }
 .game {
   width: 100%;
 }
 .container {
   margin-top: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 70px;
+  margin-right: 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-
+.gridCanvas {
+  position: relative !important;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+.rightpanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
 
 </style>

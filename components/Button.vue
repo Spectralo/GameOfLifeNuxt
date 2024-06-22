@@ -10,7 +10,7 @@
 
 <style>
 .Button {
-  background-color: var(--blue);
+  background-color: var(--blue-dim);
   color: var(--fg);
   border: none;
   border-radius: 10px;
@@ -20,5 +20,12 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
+}
+.Button:hover {
+  background-color: var(--blue);
+
+}
+.Button:active {
+  background-color: var(--bg);
 }
 </style>
